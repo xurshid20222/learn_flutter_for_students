@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,43 +11,158 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+
+  void onTextChanged(String value){
+    log('\n\nmessage : $value');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.red,
-        centerTitle: true,
-        title: const Text('Widgets'),
+      body: Center(
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 20),
+          child:  TextField(
+
+            // minLines: 4,
+            // maxLength: 4,
+            // maxLines: 4,
+            decoration:  InputDecoration(
+              label: Text('Name'),
+              hintText: 'name',
+              icon: Icon(Icons.ac_unit),
+              suffix: Icon(Icons.arrow_drop_down_outlined),
+              helperText: 'surname',
+              // helperMaxLines: 2,
+              // isDense: true,
+              // prefixIcon: Icon(Icons.abc),
+              prefix: Text('Text'),
+              prefixStyle: TextStyle(color: Colors.red),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20)
+              ),
+              // isCollapsed: true,
+              // errorText: 'Error',
+              hintStyle: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w800
+              ),
+
+            ),
+            onChanged: (value){
+              onTextChanged(value);
+            },
+          ),
+        ),
       ),
-      body: Column(
+
+      ///appBar
+      // appBar: AppBar(
+      //   backgroundColor: Colors.blue,
+      //   // shape: const StadiumBorder(),
+      //   shadowColor: Colors.red,
+      //   centerTitle: true,
+      //   title: const Text('Widgets'),
+      //   actions: [
+      //     IconButton(
+      //         onPressed: (){},
+      //         icon: Icon(Icons.done),
+      //     ),
+      //     IconButton(
+      //       onPressed: (){},
+      //       icon: Icon(Icons.access_alarm_outlined),
+      //     )
+      //   ],
+      //   leading: Icon(Icons.arrow_back),
+      //   // automaticallyImplyLeading: false,
+      //   leadingWidth: 70,
+      //   // bottom: PreferredSize(
+      //   //   preferredSize: const Size.fromHeight(100),
+      //   //   child: Container(
+      //   //     height: 100,
+      //   //     color: Colors.blueGrey,
+      //   //   ),
+      //   // ),
+      //   elevation: 20,
+      //
+      // ),
+
+      // drawer: Drawer(),
+
+      ///Column
+      // body: Column(
+      //   // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //   // crossAxisAlignment: CrossAxisAlignment.start,
+      //   children: [
+      //     Container(
+      //       color: Colors.red,
+      //       height: 200,
+      //       width: 300,
+      //     ),
+      //
+      //     Container(
+      //
+      //       color: Colors.black,
+      //       height: 200,
+      //       width: 300,
+      //     ),
+      //
+      //
+      //     Container(
+      //
+      //       color: Colors.blue,
+      //       height: 200,
+      //       width: 300,
+      //     ),
+      //
+      //   ],
+      // ),
+
+      ///Row
+      // body: SizedBox(
+      //   height: double.infinity,
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //     Container(
+      //           color: Colors.blue,
+      //           height: 500,
+      //           width: 30,
+      //         ),
+      //       Container(
+      //         color: Colors.blue,
+      //         height: 500,
+      //         width: 30,
+      //       ),
+      //       Container(
+      //         color: Colors.blue,
+      //         height: 500,
+      //         width: 30,
+      //       ),
+      //       Container(
+      //         color: Colors.blue,
+      //         height: 500,
+      //         width: 30,
+      //       ),
+      //     ],
+      //   ),
+      // ),
+
+      // body: Container(
+      //   height: 200,
+      //   width: double.infinity,
+      //   color: Colors.blue,
+      //   child: Text('Hello', textAlign: TextAlign.end, style: TextStyle(
+      //     fontSize: 30,
+      //     color: Colors.red,
+      //     fontWeight: FontWeight.w600,
+      //     // overflow: TextOverflow.ellipsis
+      //     fontFamily: 'Roboto'
+      //   ),),
+      // ),
 
 
-        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-        // crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            color: Colors.red,
-            height: 200,
-            width: 300,
-          ),
-
-          Container(
-
-            color: Colors.black,
-            height: 200,
-            width: 300,
-          ),
-          
-
-          Container(
-
-            color: Colors.blue,
-            height: 200,
-            width: 300,
-          ),
-          
-        ],
-      ),
     );
   }
 }
